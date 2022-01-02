@@ -11,7 +11,7 @@ services:
 
 before_install:
   - echo "[build] make docker image"
-  - docker build -t jjjhhhvvv/docker-with-app:1.0.0 -f Dockerfile.dev
+  - docker build -t jjjhhhvvv/docker-with-app:1.0.0 -f Dockerfile.dev ./
 
 script:
   - docker run -e CI=true jjjhhhvvv/docker-with-app:1.0.0 npm run test -- --coverage
