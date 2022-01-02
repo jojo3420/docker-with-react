@@ -1,0 +1,17 @@
+sudo: required
+
+
+services: docker
+
+language: generic
+
+
+before_install:
+  - echo "[build] make docker image"
+  - docker build -t jjjhhhvvv/docker-with-app:1.0.0
+
+script:
+  - docker run jjjhhhvvv/docker-with-app:1.0.0 npm run test -- --coverage
+
+after_script:
+  -  echo "TEST SUCCESS!"
